@@ -1,145 +1,203 @@
 import { Layout } from "@/components/layout/Layout";
 import { AnimatedSection } from "@/components/common/AnimatedSection";
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { PartyPopper, Music, Camera, Utensils, Users, Mic2, Sparkles, Calendar } from "lucide-react";
-
-const services = [
-  {
-    id: 1,
-    title: "تنظيم المهرجانات",
-    description: "تخطيط وتنفيذ المهرجانات الكبرى والفعاليات الموسمية",
-    icon: PartyPopper,
-  },
-  {
-    id: 2,
-    title: "حفلات الشركات",
-    description: "تنظيم حفلات التدشين والافتتاح والمناسبات الرسمية",
-    icon: Users,
-  },
-  {
-    id: 3,
-    title: "الحفلات الخاصة",
-    description: "أعراس، حفلات تخرج، أعياد ميلاد ومناسبات عائلية",
-    icon: Sparkles,
-  },
-  {
-    id: 4,
-    title: "التصوير والتوثيق",
-    description: "تغطية احترافية بالصور والفيديو لجميع الفعاليات",
-    icon: Camera,
-  },
-  {
-    id: 5,
-    title: "الصوتيات والإضاءة",
-    description: "أحدث أنظمة الصوت والإضاءة الاحترافية",
-    icon: Music,
-  },
-  {
-    id: 6,
-    title: "الضيافة",
-    description: "خدمات ضيافة متكاملة وتقديم الطعام",
-    icon: Utensils,
-  },
-];
-
-const pastEvents = [
-  {
-    id: 1,
-    title: "مهرجان الصيف ٢٠٢٤",
-    location: "ينبع",
-    attendees: "+٥٠٠٠",
-  },
-  {
-    id: 2,
-    title: "حفل افتتاح مول الواجهة",
-    location: "الوجه",
-    attendees: "+٢٠٠٠",
-  },
-  {
-    id: 3,
-    title: "ليلة التكريم السنوية",
-    location: "أملج",
-    attendees: "+٣٠٠",
-  },
-];
 
 const Events = () => {
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-b from-primary/10 to-background py-20">
-        <div className="container mx-auto px-4">
-          <AnimatedSection className="text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/20 px-4 py-2">
-              <PartyPopper className="h-5 w-5 text-primary" />
-              <span className="text-primary font-medium">تنظيم الحفلات والمهرجانات</span>
-            </div>
-            <h1 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
-              نصنع لحظات لا تُنسى
+      {/* Hero Section - Full screen with background image */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://res.cloudinary.com/dcui0elwh/image/upload/v1760673382/photo_2025-10-17_06-53-22_hqe366.jpg')`,
+          }}
+        >
+          <div className="absolute inset-0 bg-black/60" />
+        </div>
+
+        {/* Hero Content */}
+        <div className="container relative z-10 mx-auto px-4 text-center">
+          <AnimatedSection>
+            {/* Main Title - Right side */}
+            <h1 className="mb-8 text-4xl font-bold text-white md:text-5xl lg:text-6xl">
+              تنظيم الحفلات و المهرجنات
             </h1>
-            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-              فريق متخصص في تنظيم وإدارة الفعاليات والحفلات بأعلى معايير الجودة والإبداع
+          </AnimatedSection>
+
+          <AnimatedSection delay={200}>
+            {/* Subtitle */}
+            <h2 className="mb-6 text-2xl font-semibold text-primary md:text-3xl">
+              كل فعالية هي قصة جديدة تُروى
+            </h2>
+          </AnimatedSection>
+
+          <AnimatedSection delay={400}>
+            {/* Description */}
+            <p className="mx-auto max-w-2xl text-lg leading-relaxed text-white/90">
+              نُعدّ من أكثر الجهات نشاطًا وفعالية في مجال تنظيم الفعاليات في مصر.
+              قمنا بتنظيم أكثر من 50 فعالية ما بين إطلاق منتجات، حفلات افتتاح، مؤتمرات وحملات ترويجية.
+              مهما كان نوع أو حجم الفعالية، لدينا الخبرة والرؤية لإنجاحها بأفضل شكل ممكن.
             </p>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-16">
+      {/* Services Section - خدمات إدارة الفعاليات */}
+      <section className="bg-background py-20">
         <div className="container mx-auto px-4">
-          <AnimatedSection className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-foreground">خدماتنا</h2>
-            <p className="text-muted-foreground">نقدم حلولاً متكاملة لجميع أنواع الفعاليات</p>
+          <AnimatedSection className="mb-16 text-center">
+            <h2 className="text-3xl font-bold text-foreground md:text-4xl">
+              خدمات إدارة الفعاليات
+            </h2>
           </AnimatedSection>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service, index) => {
-              const Icon = service.icon;
-              return (
-                <AnimatedSection key={service.id} delay={index * 100}>
-                  <Card className="group h-full border-0 bg-card shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <CardContent className="p-6 text-center">
-                      <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                        <Icon className="h-8 w-8" />
-                      </div>
-                      <h3 className="mb-2 text-xl font-bold text-foreground">{service.title}</h3>
-                      <p className="text-muted-foreground">{service.description}</p>
-                    </CardContent>
-                  </Card>
-                </AnimatedSection>
-              );
-            })}
+          {/* Service 1: ما بعد الفعالية */}
+          <div className="mb-20 grid items-center gap-10 lg:grid-cols-2">
+            <AnimatedSection animation="slide-right">
+              <div className="overflow-hidden rounded-xl shadow-lg">
+                <img
+                  src="https://res.cloudinary.com/dcui0elwh/image/upload/v1760673382/photo_2025-10-17_06-53-22_hqe366.jpg"
+                  alt="تنظيم المؤتمرات"
+                  className="h-auto w-full object-cover"
+                />
+              </div>
+            </AnimatedSection>
+            
+            <AnimatedSection animation="slide-left" className="space-y-4">
+              <h3 className="text-2xl font-bold text-foreground md:text-3xl">
+                ما بعد الفعالية
+              </h3>
+              <ul className="space-y-3 text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">◦</span>
+                  <span>توزيع الهدايا.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">◦</span>
+                  <span>تفكيك وتنظيف فعاليتك.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">◦</span>
+                  <span>إنتاج المواد الترويجية</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">◦</span>
+                  <span>ملخص ما بعد الفعالية</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">◦</span>
+                  <span>تغطية شاملة</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">◦</span>
+                  <span>تصوير الفيديو (فيديو ٣ دقائق لأبرز الأحداث)</span>
+                </li>
+              </ul>
+            </AnimatedSection>
           </div>
-        </div>
-      </section>
 
-      {/* Past Events */}
-      <section className="bg-muted/50 py-16">
-        <div className="container mx-auto px-4">
-          <AnimatedSection className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-foreground">فعاليات سابقة</h2>
-            <p className="text-muted-foreground">نفخر بإنجازاتنا في تنظيم الفعاليات</p>
-          </AnimatedSection>
+          {/* Service 2: إدارة الموقع */}
+          <div className="mb-20 grid items-center gap-10 lg:grid-cols-2">
+            <AnimatedSection animation="slide-left" className="order-2 space-y-4 lg:order-1">
+              <h3 className="text-2xl font-bold text-foreground md:text-3xl">
+                إدارة الموقع
+              </h3>
+              <ul className="space-y-3 text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">◦</span>
+                  <span>تسجيل المشاركين/الضيوف وتجهيز الباقة.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">◦</span>
+                  <span>تجهيز الموقع وإدارة يوم الحدث.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">◦</span>
+                  <span>جداول زمنية مفصلة، وتسلسل العرض، ونصوص مُقدّم الحفل</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">◦</span>
+                  <span>مُقدّم الحفل وتنسيق العروض.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">◦</span>
+                  <span>منسق العلاقات العامة والإعلام.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">◦</span>
+                  <span>تأجير معدات الفعاليات.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">◦</span>
+                  <span>الشاشات والخلفيات.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">◦</span>
+                  <span>فريق عمل ودود وموثوق (مُرشد/مُوظّف).</span>
+                </li>
+              </ul>
+            </AnimatedSection>
+            
+            <AnimatedSection animation="slide-right" className="order-1 lg:order-2">
+              <div className="overflow-hidden rounded-xl shadow-lg">
+                <img
+                  src="https://res.cloudinary.com/dcui0elwh/image/upload/v1759453049/WhatsApp_Image_2025-09-02_at_12.53.32_33b70d9d_fg4ayu.jpg"
+                  alt="إدارة الموقع"
+                  className="h-auto w-full object-cover"
+                />
+              </div>
+            </AnimatedSection>
+          </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
-            {pastEvents.map((event, index) => (
-              <AnimatedSection key={event.id} delay={index * 100}>
-                <Card className="border-0 bg-card shadow-md">
-                  <CardContent className="p-6">
-                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                      <Calendar className="h-6 w-6 text-primary" />
-                    </div>
-                    <h3 className="mb-2 text-lg font-bold text-foreground">{event.title}</h3>
-                    <p className="text-muted-foreground">{event.location}</p>
-                    <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1">
-                      <Users className="h-4 w-4 text-primary" />
-                      <span className="text-sm font-medium text-primary">{event.attendees} حضور</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              </AnimatedSection>
-            ))}
+          {/* Service 3: التخطيط المسبق للفعالية */}
+          <div className="grid items-center gap-10 lg:grid-cols-2">
+            <AnimatedSection animation="slide-right">
+              <div className="overflow-hidden rounded-xl shadow-lg">
+                <img
+                  src="https://res.cloudinary.com/dcui0elwh/image/upload/v1760672411/OIP_1_wgj6pj.jpg"
+                  alt="التخطيط المسبق للفعالية"
+                  className="h-auto w-full object-cover"
+                />
+              </div>
+            </AnimatedSection>
+            
+            <AnimatedSection animation="slide-left" className="space-y-4">
+              <h3 className="text-2xl font-bold text-foreground md:text-3xl">
+                التخطيط المسبق للفعالية
+              </h3>
+              <ul className="space-y-3 text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">◦</span>
+                  <span>وضع الميزانية، وتخصيصها، وإدارتها.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">◦</span>
+                  <span>وضع مسارات حرجة وجداول زمنية مفصلة خصيصًا لفعاليتك.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">◦</span>
+                  <span>بناء الهوية التجارية واستراتيجية تسويقية مخصصة.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">◦</span>
+                  <span>تخطيط وسائل التواصل الاجتماعي</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">◦</span>
+                  <span>حجز المكان</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">◦</span>
+                  <span>تطوير السمة</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">◦</span>
+                  <span>الاستلام والتوصيل</span>
+                </li>
+              </ul>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -148,20 +206,28 @@ const Events = () => {
       <section className="bg-primary py-16">
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center">
-            <Mic2 className="mx-auto mb-4 h-12 w-12 text-primary-foreground" />
-            <h2 className="mb-4 text-2xl font-bold text-primary-foreground md:text-3xl">
-              هل لديك مناسبة قادمة؟
+            <h2 className="mb-8 text-2xl font-bold text-primary-foreground md:text-3xl">
+              هل تريد معرفة المزيد من التفاصيل حول خدماتنا وأسعارنا؟
             </h2>
-            <p className="mb-8 text-primary-foreground/80 text-lg">
-              دعنا نساعدك في تحويل فكرتك إلى حدث استثنائي
-            </p>
-            <Button
-              size="lg"
-              className="bg-foreground text-background hover:bg-foreground/90"
-              asChild
-            >
-              <a href="/contact">احجز استشارة مجانية</a>
-            </Button>
+            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Button
+                size="lg"
+                className="bg-foreground text-background hover:bg-foreground/90"
+                asChild
+              >
+                <a href="/contact">احصل على عرض</a>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background"
+                asChild
+              >
+                <a href="https://wa.me/+966536422477" target="_blank" rel="noopener noreferrer">
+                  تواصل عبر واتساب
+                </a>
+              </Button>
+            </div>
           </AnimatedSection>
         </div>
       </section>

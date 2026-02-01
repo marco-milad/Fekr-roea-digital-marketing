@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -87,6 +88,25 @@ export default {
           "0%": { opacity: "0", transform: "translateX(-50px)" },
           "100%": { opacity: "1", transform: "translateX(0)" },
         },
+        "ken-burns": {
+          "0%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.1)" },
+          "100%": { transform: "scale(1)" },
+        },
+        "ken-burns-pan": {
+          "0%": { transform: "scale(1) translate(0, 0)" },
+          "50%": { transform: "scale(1.15) translate(-2%, -2%)" },
+          "100%": { transform: "scale(1) translate(0, 0)" },
+        },
+        "ken-burns-fast": {
+          "0%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.08)" },
+          "100%": { transform: "scale(1)" },
+        },
+        "pulse-slow": {
+          "0%, 100%": { opacity: "0.2" },
+          "50%": { opacity: "0.3" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -94,8 +114,12 @@ export default {
         "fade-in-up": "fade-in-up 0.6s ease-out forwards",
         "slide-in-right": "slide-in-right 0.6s ease-out forwards",
         "slide-in-left": "slide-in-left 0.6s ease-out forwards",
+        "ken-burns": "ken-burns 20s ease-in-out infinite",
+        "ken-burns-pan": "ken-burns-pan 25s ease-in-out infinite",
+        "ken-burns-fast": "ken-burns-fast 15s ease-in-out infinite",
+        "pulse-slow": "pulse-slow 8s ease-in-out infinite",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;

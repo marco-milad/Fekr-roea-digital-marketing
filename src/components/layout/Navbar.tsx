@@ -23,9 +23,9 @@ const navLinks = [
       { href: "/#about", label: "من نحن" },
     ]
   },
-  { href: "#", label: "متجرنا" },
-  { href: "#", label: "تنظيم الحفلات و المهرجانات" },
-  { href: "#", label: "الديكور" },
+  { href: "/store", label: "متجرنا" },
+  { href: "/events", label: "تنظيم الحفلات و المهرجانات" },
+  { href: "/decor", label: "الديكور" },
   { href: "/contact", label: "تواصل معنا" },
 ];
 

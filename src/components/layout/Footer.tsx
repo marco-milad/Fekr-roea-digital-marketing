@@ -45,7 +45,7 @@ export function Footer() {
             <div className="space-y-6">
               <Link to="/" className="inline-block group">
                 <img 
-                  src="https://res.cloudinary.com/dcui0elwh/image/upload/v1769788840/%D9%81%D9%83%D8%B1_%D9%88%D8%B1%D9%88%D9%94%D9%8A%D8%A9_cjkpq7.png" 
+                  src="https://res.cloudinary.com/dcui0elwh/image/upload/v1759586832/logo2_cjf7mn.jpg" 
                   alt="شعار فكر ورؤية"
                   className="h-16 w-auto object-contain transition-opacity group-hover:opacity-80"
                 />

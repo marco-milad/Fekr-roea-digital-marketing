@@ -20,7 +20,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden py-12 pt-24 sm:py-20 md:py-24 lg:py-0 m-0 p-0">
+    <section className="relative w-full min-h-[85vh] md:min-h-screen flex items-center justify-center overflow-hidden py-8 pt-20 sm:py-20 md:py-24 lg:py-0 m-0 p-0">
       {/* Background Image with Ken Burns Effect - Full Screen */}
       <div className="absolute inset-0 z-0 w-full h-full m-0 p-0">
         <div 
@@ -94,18 +94,18 @@ export function HeroSection() {
           </p>
 
           {/* Stats/Features Quick Highlights - More compact on mobile */}
-          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 md:gap-5 lg:gap-8 mb-3 sm:mb-6 md:mb-10 lg:mb-12 animate-in fade-in slide-in-from-bottom duration-1000 delay-700">
-            <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2 bg-background/15 backdrop-blur-sm px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-full border border-background/30">
-              <Award className="h-3 w-3 sm:h-3.5 sm:w-3.5 md:h-5 md:w-5 text-primary flex-shrink-0" />
-              <span className="text-[9px] sm:text-[10px] md:text-sm lg:text-base font-medium whitespace-nowrap">خبرة احترافية</span>
+          <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-2 md:gap-5 lg:gap-8 mb-2.5 sm:mb-6 md:mb-10 lg:mb-12 animate-in fade-in slide-in-from-bottom duration-1000 delay-700">
+            <div className="flex items-center gap-0.5 sm:gap-1.5 md:gap-2 bg-background/15 backdrop-blur-sm px-1.5 sm:px-3 md:px-4 py-0.5 sm:py-1.5 md:py-2 rounded-full border border-background/30">
+              <Award className="h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 md:h-5 md:w-5 text-primary flex-shrink-0" />
+              <span className="text-[8px] sm:text-[10px] md:text-sm lg:text-base font-medium whitespace-nowrap">خبرة احترافية</span>
             </div>
-            <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2 bg-background/15 backdrop-blur-sm px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-full border border-background/30">
-              <Users className="h-3 w-3 sm:h-3.5 sm:w-3.5 md:h-5 md:w-5 text-primary flex-shrink-0" />
-              <span className="text-[9px] sm:text-[10px] md:text-sm lg:text-base font-medium whitespace-nowrap">فريق متخصص</span>
+            <div className="flex items-center gap-0.5 sm:gap-1.5 md:gap-2 bg-background/15 backdrop-blur-sm px-1.5 sm:px-3 md:px-4 py-0.5 sm:py-1.5 md:py-2 rounded-full border border-background/30">
+              <Users className="h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 md:h-5 md:w-5 text-primary flex-shrink-0" />
+              <span className="text-[8px] sm:text-[10px] md:text-sm lg:text-base font-medium whitespace-nowrap">فريق متخصص</span>
             </div>
-            <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2 bg-background/15 backdrop-blur-sm px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-full border border-background/30">
-              <TrendingUp className="h-3 w-3 sm:h-3.5 sm:w-3.5 md:h-5 md:w-5 text-primary flex-shrink-0" />
-              <span className="text-[9px] sm:text-[10px] md:text-sm lg:text-base font-medium whitespace-nowrap">نتائج مضمونة</span>
+            <div className="flex items-center gap-0.5 sm:gap-1.5 md:gap-2 bg-background/15 backdrop-blur-sm px-1.5 sm:px-3 md:px-4 py-0.5 sm:py-1.5 md:py-2 rounded-full border border-background/30">
+              <TrendingUp className="h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 md:h-5 md:w-5 text-primary flex-shrink-0" />
+              <span className="text-[8px] sm:text-[10px] md:text-sm lg:text-base font-medium whitespace-nowrap">نتائج مضمونة</span>
             </div>
           </div>
 

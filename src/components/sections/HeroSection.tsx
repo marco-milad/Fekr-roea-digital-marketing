@@ -20,7 +20,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-24 lg:pt-0 m-0 p-0">
+    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden py-24 sm:py-28 md:py-32 lg:py-0 m-0 p-0">
       {/* Background Image with Ken Burns Effect - Full Screen */}
       <div className="absolute inset-0 z-0 w-full h-full m-0 p-0">
         <div 
@@ -36,16 +36,16 @@ export function HeroSection() {
 
       {/* Animated Background Particles/Shapes - Responsive sizes */}
       <div className="absolute inset-0 z-[1] w-full h-full overflow-hidden pointer-events-none">
-        {/* Floating geometric shapes */}
+        {/* Floating geometric shapes - smaller on mobile */}
         <div 
-          className="absolute top-1/4 right-[5%] sm:right-[10%] w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 bg-primary/10 rounded-full blur-3xl animate-pulse"
+          className="absolute top-1/4 right-[5%] sm:right-[10%] w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 bg-primary/10 rounded-full blur-3xl animate-pulse"
           style={{
             transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
             transition: 'transform 0.3s ease-out'
           }}
         />
         <div 
-          className="absolute bottom-1/4 left-[5%] sm:left-[15%] w-64 h-64 sm:w-96 sm:h-96 lg:w-[28rem] lg:h-[28rem] bg-primary/5 rounded-full blur-3xl animate-pulse delay-1000"
+          className="absolute bottom-1/4 left-[5%] sm:left-[15%] w-40 h-40 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-primary/5 rounded-full blur-3xl animate-pulse delay-1000"
           style={{
             transform: `translate(${-mousePosition.x}px, ${-mousePosition.y}px)`,
             transition: 'transform 0.3s ease-out'
@@ -54,17 +54,17 @@ export function HeroSection() {
         
         {/* Decorative grid pattern - Responsive */}
         <div 
-          className="absolute inset-0 w-full h-full opacity-5 sm:bg-[length:40px_40px] lg:bg-[length:50px_50px]"
+          className="absolute inset-0 w-full h-full opacity-5"
           style={{
             backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), 
                              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-            backgroundSize: '30px 30px',
+            backgroundSize: '24px 24px',
           }}
         />
       </div>
 
       {/* Content - Full Width with Internal Padding Only */}
-      <div className="relative z-10 w-full max-w-full text-center text-background px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+      <div className="relative z-10 w-full max-w-full text-center text-background px-5 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <AnimatedSection animation="fade-up">
           {/* Company Logo with Animation - Responsive */}
           {/* <div className="mb-6 sm:mb-8 animate-in fade-in slide-in-from-top duration-1000">
@@ -76,59 +76,59 @@ export function HeroSection() {
           </div> */}
 
           {/* Decorative Subtitle - Responsive */}
-          <div className="mb-6 sm:mb-8 flex items-center justify-center gap-3 sm:gap-4 animate-in fade-in slide-in-from-top duration-1000 delay-150">
-            <span className="h-px w-8 sm:w-12 md:w-16 lg:w-20 bg-gradient-to-r from-transparent to-primary" />
-            <div className="flex items-center gap-1.5 sm:gap-2">
-              <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 text-primary animate-pulse" />
-              <span className="text-primary font-bold text-base sm:text-lg md:text-xl lg:text-2xl tracking-wider">
+          <div className="mb-4 sm:mb-6 md:mb-8 flex items-center justify-center gap-2 sm:gap-3 md:gap-4 animate-in fade-in slide-in-from-top duration-1000 delay-150">
+            <span className="h-px w-6 sm:w-10 md:w-16 lg:w-20 bg-gradient-to-r from-transparent to-primary" />
+            <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2">
+              <Sparkles className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 text-primary animate-pulse" />
+              <span className="text-primary font-bold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider">
                 فكر و رؤية
               </span>
-              <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 text-primary animate-pulse delay-300" />
+              <Sparkles className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 text-primary animate-pulse delay-300" />
             </div>
-            <span className="h-px w-8 sm:w-12 md:w-16 lg:w-20 bg-gradient-to-l from-transparent to-primary" />
+            <span className="h-px w-6 sm:w-10 md:w-16 lg:w-20 bg-gradient-to-l from-transparent to-primary" />
           </div>
 
           {/* Main Heading with Gradient Text - Fully responsive */}
-          <h1 className="mb-4 sm:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black leading-tight animate-in fade-in slide-in-from-bottom duration-1000 delay-300">
-            <span className="block mb-1 sm:mb-2">وكالة رائدة في</span>
+          <h1 className="mb-3 sm:mb-4 md:mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black leading-tight animate-in fade-in slide-in-from-bottom duration-1000 delay-300">
+            <span className="block mb-1">وكالة رائدة في</span>
             <span className="block bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent drop-shadow-lg">
               الدعاية والإعلان
             </span>
           </h1>
 
           {/* Description - Responsive text and max-width */}
-          <p className="mx-auto mb-8 sm:mb-10 md:mb-12 max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl leading-relaxed animate-in fade-in slide-in-from-bottom duration-1000 delay-500 font-light">
+          <p className="mx-auto mb-6 sm:mb-8 md:mb-10 lg:mb-12 max-w-xs sm:max-w-lg md:max-w-2xl lg:max-w-3xl xl:max-w-4xl text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed animate-in fade-in slide-in-from-bottom duration-1000 delay-500 font-light px-2 sm:px-0">
             نقدم حلولاً إبداعية متكاملة لتطوير علامتك التجارية وتعزيز حضورك في السوق
             بأساليب مبتكرة وفريق محترف
           </p>
 
           {/* Stats/Features Quick Highlights - Fully responsive */}
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 mb-8 sm:mb-10 md:mb-12 animate-in fade-in slide-in-from-bottom duration-1000 delay-700">
-            <div className="flex items-center gap-1.5 sm:gap-2 bg-background/10 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-background/20 hover:bg-background/20 hover:scale-105 transition-all duration-300">
-              <Award className="h-4 w-4 sm:h-5 sm:w-5 text-primary flex-shrink-0" />
-              <span className="text-xs sm:text-sm md:text-base font-medium whitespace-nowrap">خبرة احترافية</span>
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 md:gap-5 lg:gap-8 mb-6 sm:mb-8 md:mb-10 lg:mb-12 animate-in fade-in slide-in-from-bottom duration-1000 delay-700">
+            <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2 bg-background/10 backdrop-blur-sm px-2.5 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-full border border-background/20 hover:bg-background/20 hover:scale-105 transition-all duration-300">
+              <Award className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 text-primary flex-shrink-0" />
+              <span className="text-[10px] sm:text-xs md:text-sm lg:text-base font-medium whitespace-nowrap">خبرة احترافية</span>
             </div>
-            <div className="flex items-center gap-1.5 sm:gap-2 bg-background/10 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-background/20 hover:bg-background/20 hover:scale-105 transition-all duration-300">
-              <Users className="h-4 w-4 sm:h-5 sm:w-5 text-primary flex-shrink-0" />
-              <span className="text-xs sm:text-sm md:text-base font-medium whitespace-nowrap">فريق متخصص</span>
+            <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2 bg-background/10 backdrop-blur-sm px-2.5 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-full border border-background/20 hover:bg-background/20 hover:scale-105 transition-all duration-300">
+              <Users className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 text-primary flex-shrink-0" />
+              <span className="text-[10px] sm:text-xs md:text-sm lg:text-base font-medium whitespace-nowrap">فريق متخصص</span>
             </div>
-            <div className="flex items-center gap-1.5 sm:gap-2 bg-background/10 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-background/20 hover:bg-background/20 hover:scale-105 transition-all duration-300">
-              <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 text-primary flex-shrink-0" />
-              <span className="text-xs sm:text-sm md:text-base font-medium whitespace-nowrap">نتائج مضمونة</span>
+            <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2 bg-background/10 backdrop-blur-sm px-2.5 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-full border border-background/20 hover:bg-background/20 hover:scale-105 transition-all duration-300">
+              <TrendingUp className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 text-primary flex-shrink-0" />
+              <span className="text-[10px] sm:text-xs md:text-sm lg:text-base font-medium whitespace-nowrap">نتائج مضمونة</span>
             </div>
           </div>
 
           {/* CTA Buttons with Enhanced Design - Fully responsive */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 md:gap-6 animate-in fade-in slide-in-from-bottom duration-1000 delay-1000 max-w-2xl mx-auto">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 md:gap-5 animate-in fade-in slide-in-from-bottom duration-1000 delay-1000 w-full max-w-sm sm:max-w-xl md:max-w-2xl mx-auto px-2 sm:px-0">
             <Button
               asChild
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 text-base sm:text-lg md:text-xl px-6 py-5 sm:px-8 sm:py-6 md:px-10 md:py-7 lg:px-12 lg:py-8 rounded-xl font-bold shadow-2xl shadow-primary/50 hover:shadow-primary/70 hover:scale-105 transition-all duration-300 active:scale-95 group relative overflow-hidden w-full sm:w-auto"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 text-sm sm:text-base md:text-lg px-5 py-4 sm:px-6 sm:py-5 md:px-8 md:py-6 lg:px-10 lg:py-7 rounded-xl font-bold shadow-2xl shadow-primary/50 hover:shadow-primary/70 hover:scale-105 transition-all duration-300 active:scale-95 group relative overflow-hidden w-full sm:w-auto min-h-[48px]"
             >
               <Link to="/contact">
                 <span className="relative z-10 flex items-center justify-center gap-2">
                   تواصل معنا الآن
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                   </svg>
                 </span>
@@ -141,7 +141,7 @@ export function HeroSection() {
               asChild
               variant="outline"
               size="lg"
-              className="border-2 border-background/80 bg-background/10 backdrop-blur-md text-background hover:bg-background hover:text-foreground text-base sm:text-lg md:text-xl px-6 py-5 sm:px-8 sm:py-6 md:px-10 md:py-7 lg:px-12 lg:py-8 rounded-xl font-bold hover:scale-105 transition-all duration-300 active:scale-95 w-full sm:w-auto"
+              className="border-2 border-background/80 bg-background/10 backdrop-blur-md text-background hover:bg-background hover:text-foreground text-sm sm:text-base md:text-lg px-5 py-4 sm:px-6 sm:py-5 md:px-8 md:py-6 lg:px-10 lg:py-7 rounded-xl font-bold hover:scale-105 transition-all duration-300 active:scale-95 w-full sm:w-auto min-h-[48px]"
             >
               <a href="#about">
                 اكتشف خدماتنا
@@ -152,21 +152,21 @@ export function HeroSection() {
       </div>
 
       {/* Enhanced Scroll Indicator - Responsive */}
-      <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-10 animate-in fade-in slide-in-from-bottom duration-1000 delay-1500">
+      <div className="absolute bottom-3 sm:bottom-5 md:bottom-8 left-1/2 -translate-x-1/2 z-10 animate-in fade-in slide-in-from-bottom duration-1000 delay-1500">
         <a
           href="#about"
-          className="flex flex-col items-center gap-2 sm:gap-3 text-background/70 transition-all hover:text-background group"
+          className="flex flex-col items-center gap-1.5 sm:gap-2 md:gap-3 text-background/70 transition-all hover:text-background group"
         >
-          <span className="text-xs sm:text-sm font-medium">اكتشف المزيد</span>
-          <div className="h-10 w-6 sm:h-12 sm:w-7 rounded-full border-2 border-background/40 p-1 sm:p-1.5 group-hover:border-background/60 transition-colors">
-            <div className="h-2.5 w-1.5 sm:h-3 sm:w-2 mx-auto rounded-full bg-background/60 animate-bounce group-hover:bg-background" />
+          <span className="text-[10px] sm:text-xs md:text-sm font-medium">اكتشف المزيد</span>
+          <div className="h-8 w-5 sm:h-10 sm:w-6 md:h-12 md:w-7 rounded-full border-2 border-background/40 p-1 sm:p-1.5 group-hover:border-background/60 transition-colors">
+            <div className="h-2 w-1 sm:h-2.5 sm:w-1.5 md:h-3 md:w-2 mx-auto rounded-full bg-background/60 animate-bounce group-hover:bg-background" />
           </div>
         </a>
       </div>
 
       {/* Decorative corner accents - Responsive - Full Width */}
-      <div className="absolute top-0 right-0 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 border-t-2 border-r-2 border-primary/20 z-[1] pointer-events-none m-0" />
-      <div className="absolute bottom-0 left-0 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 border-b-2 border-l-2 border-primary/20 z-[1] pointer-events-none m-0" />
+      <div className="absolute top-0 right-0 w-20 h-20 sm:w-32 sm:h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 border-t-2 border-r-2 border-primary/20 z-[1] pointer-events-none m-0" />
+      <div className="absolute bottom-0 left-0 w-20 h-20 sm:w-32 sm:h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 border-b-2 border-l-2 border-primary/20 z-[1] pointer-events-none m-0" />
     </section>
   );
 }

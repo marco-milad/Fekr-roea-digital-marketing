@@ -20,7 +20,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-[100svh] md:min-h-screen flex items-center justify-center overflow-hidden py-16 sm:py-20 md:py-24 lg:py-0 m-0 p-0">
+    <section className="relative w-full min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden py-12 pt-24 sm:py-20 md:py-24 lg:py-0 m-0 p-0">
       {/* Background Image with Ken Burns Effect - Full Screen */}
       <div className="absolute inset-0 z-0 w-full h-full m-0 p-0">
         <div 
@@ -88,13 +88,13 @@ export function HeroSection() {
           </h1>
 
           {/* Description - Tighter on mobile */}
-          <p className="mx-auto mb-4 sm:mb-6 md:mb-10 lg:mb-12 max-w-[280px] sm:max-w-md md:max-w-2xl lg:max-w-3xl xl:max-w-4xl text-[13px] sm:text-sm md:text-lg lg:text-xl xl:text-2xl leading-relaxed animate-in fade-in slide-in-from-bottom duration-1000 delay-500 font-light">
+          <p className="mx-auto mb-3 sm:mb-6 md:mb-10 lg:mb-12 max-w-[280px] sm:max-w-md md:max-w-2xl lg:max-w-3xl xl:max-w-4xl text-[13px] sm:text-sm md:text-lg lg:text-xl xl:text-2xl leading-relaxed animate-in fade-in slide-in-from-bottom duration-1000 delay-500 font-light">
             نقدم حلولاً إبداعية متكاملة لتطوير علامتك التجارية وتعزيز حضورك في السوق
             بأساليب مبتكرة وفريق محترف
           </p>
 
           {/* Stats/Features Quick Highlights - More compact on mobile */}
-          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 md:gap-5 lg:gap-8 mb-5 sm:mb-6 md:mb-10 lg:mb-12 animate-in fade-in slide-in-from-bottom duration-1000 delay-700">
+          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 md:gap-5 lg:gap-8 mb-3 sm:mb-6 md:mb-10 lg:mb-12 animate-in fade-in slide-in-from-bottom duration-1000 delay-700">
             <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2 bg-background/15 backdrop-blur-sm px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-full border border-background/30">
               <Award className="h-3 w-3 sm:h-3.5 sm:w-3.5 md:h-5 md:w-5 text-primary flex-shrink-0" />
               <span className="text-[9px] sm:text-[10px] md:text-sm lg:text-base font-medium whitespace-nowrap">خبرة احترافية</span>
@@ -110,11 +110,11 @@ export function HeroSection() {
           </div>
 
           {/* CTA Buttons - Compact and balanced on mobile */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 sm:gap-3 md:gap-5 animate-in fade-in slide-in-from-bottom duration-1000 delay-1000 w-full max-w-[280px] sm:max-w-md md:max-w-2xl mx-auto">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 sm:gap-3 md:gap-5 animate-in fade-in slide-in-from-bottom duration-1000 delay-1000 w-full max-w-[300px] sm:max-w-md md:max-w-2xl mx-auto">
             <Button
               asChild
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 text-[13px] sm:text-sm md:text-lg h-11 sm:h-12 md:h-14 lg:h-16 px-4 sm:px-5 md:px-8 lg:px-10 rounded-lg sm:rounded-xl font-bold shadow-xl shadow-primary/40 hover:shadow-primary/60 hover:scale-[1.02] transition-all duration-300 active:scale-[0.98] group relative overflow-hidden w-full sm:w-auto"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 text-[13px] sm:text-sm md:text-lg h-10 sm:h-12 md:h-14 lg:h-16 px-3 sm:px-5 md:px-8 lg:px-10 rounded-lg sm:rounded-xl font-bold shadow-xl shadow-primary/40 hover:shadow-primary/60 hover:scale-[1.02] transition-all duration-300 active:scale-[0.98] group relative overflow-hidden w-full sm:w-auto"
             >
               <Link to="/contact">
                 <span className="relative z-10 flex items-center justify-center gap-1.5 sm:gap-2">
@@ -131,7 +131,7 @@ export function HeroSection() {
               asChild
               variant="outline"
               size="lg"
-              className="border-2 border-background/70 bg-background/10 backdrop-blur-md text-background hover:bg-background hover:text-foreground text-[13px] sm:text-sm md:text-lg h-11 sm:h-12 md:h-14 lg:h-16 px-4 sm:px-5 md:px-8 lg:px-10 rounded-lg sm:rounded-xl font-bold hover:scale-[1.02] transition-all duration-300 active:scale-[0.98] w-full sm:w-auto"
+              className="border-2 border-background/70 bg-background/10 backdrop-blur-md text-background hover:bg-background hover:text-foreground text-[13px] sm:text-sm md:text-lg h-10 sm:h-12 md:h-14 lg:h-16 px-3 sm:px-5 md:px-8 lg:px-10 rounded-lg sm:rounded-xl font-bold hover:scale-[1.02] transition-all duration-300 active:scale-[0.98] w-full sm:w-auto"
             >
               <a href="#about">
                 اكتشف خدماتنا
@@ -142,7 +142,7 @@ export function HeroSection() {
       </div>
 
       {/* Enhanced Scroll Indicator - Smaller on mobile */}
-      <div className="absolute bottom-2 sm:bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-10 animate-in fade-in slide-in-from-bottom duration-1000 delay-1500">
+      <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-10 animate-in fade-in slide-in-from-bottom duration-1000 delay-1500">
         <a
           href="#about"
           className="flex flex-col items-center gap-1 sm:gap-1.5 md:gap-3 text-background/60 transition-all hover:text-background group"

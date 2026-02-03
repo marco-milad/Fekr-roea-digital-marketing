@@ -110,15 +110,18 @@ const Contact = () => {
     <Layout>
       {/* Hero Section - Enhanced */}
       <section className="relative py-24 md:py-32 overflow-hidden">
-        {/* Background Image */}
+        {/* Background Image with Ken Burns Effect */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://res.cloudinary.com/dcui0elwh/image/upload/v1759453049/WhatsApp_Image_2025-09-02_at_12.53.32_33b70d9d_fg4ayu.jpg"
-            alt="خلفية التواصل"
-            className="w-full h-full object-cover"
+          <div 
+            className="w-full h-full bg-cover bg-center animate-ken-burns"
+            style={{
+              backgroundImage: "url('https://res.cloudinary.com/dcui0elwh/image/upload/v1759453049/WhatsApp_Image_2025-09-02_at_12.53.32_33b70d9d_fg4ayu.jpg')",
+              backgroundPosition: 'center center',
+            }}
           />
-          {/* Dark Overlay for better text contrast */}
-          <div className="absolute inset-0 bg-gradient-to-b from-foreground/85 via-foreground/80 to-foreground/90" />
+          {/* Multi-layer gradient overlay for depth - same as main hero */}
+          <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-foreground/90 via-foreground/80 to-foreground/95 md:from-foreground/85 md:via-foreground/75 md:to-foreground/90" />
+          <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary/15 via-transparent to-primary/15 md:from-primary/20 md:to-primary/20 animate-pulse-slow" />
         </div>
 
         {/* Background Decorations */}

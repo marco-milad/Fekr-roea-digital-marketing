@@ -67,13 +67,13 @@ export function HeroSection() {
       <div className="relative z-10 w-full max-w-full text-center text-background px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <AnimatedSection animation="fade-up">
           {/* Company Logo with Animation - Responsive */}
-          <div className="mb-6 sm:mb-8 animate-in fade-in slide-in-from-top duration-1000">
+          {/* <div className="mb-6 sm:mb-8 animate-in fade-in slide-in-from-top duration-1000">
             <img 
               src="https://res.cloudinary.com/dcui0elwh/image/upload/v1769788840/%D9%81%D9%83%D8%B1_%D9%88%D8%B1%D9%88%D9%94%D9%8A%D8%A9_cjkpq7.png" 
               alt="شعار فكر ورؤية"
               className="h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36 w-auto object-contain mx-auto drop-shadow-2xl"
             />
-          </div>
+          </div> */}
 
           {/* Decorative Subtitle - Responsive */}
           <div className="mb-6 sm:mb-8 flex items-center justify-center gap-3 sm:gap-4 animate-in fade-in slide-in-from-top duration-1000 delay-150">

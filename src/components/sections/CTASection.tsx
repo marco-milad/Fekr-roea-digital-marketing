@@ -4,7 +4,7 @@ import { AnimatedSection } from "@/components/common/AnimatedSection";
 
 export function CTASection() {
   return (
-    <section className="bg-primary py-16">
+    <section className="bg-primary py-16 overflow-x-hidden">
       <div className="container mx-auto px-4">
         <AnimatedSection className="text-center">
           <h2 className="mb-4 text-2xl font-bold text-primary-foreground md:text-3xl">

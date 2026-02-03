@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { Sparkles, Award, Users, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -6,18 +6,53 @@ import { AnimatedSection } from "@/components/common/AnimatedSection";
 
 export function HeroSection() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [imageError, setImageError] = useState(false);
 
-  // Mouse parallax effect
+  // Optimized mouse parallax effect with throttle
   useEffect(() => {
+    let rafId: number;
+    let lastTime = 0;
+    const throttleDelay = 16; // ~60fps
+
     const handleMouseMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 20;
-      const y = (e.clientY / window.innerHeight - 0.5) * 20;
-      setMousePosition({ x, y });
+      const now = Date.now();
+      
+      if (now - lastTime < throttleDelay) {
+        return;
+      }
+      
+      lastTime = now;
+      
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+      
+      rafId = requestAnimationFrame(() => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 20;
+        const y = (e.clientY / window.innerHeight - 0.5) * 20;
+        setMousePosition({ x, y });
+      });
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+    };
   }, []);
+
+  // Preload background image
+  useEffect(() => {
+    const img = new Image();
+    img.src = 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&h=1080&fit=crop&q=80';
+    img.onerror = () => setImageError(true);
+  }, []);
+
+  const backgroundImage = imageError 
+    ? "url('/fallback-hero.jpg')" 
+    : "url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&h=1080&fit=crop&q=80')";
 
   return (
     <section className="relative w-full min-h-[85vh] md:min-h-screen flex items-center justify-center overflow-hidden overflow-x-hidden py-8 pt-20 sm:py-20 md:py-24 lg:py-0 m-0 p-0">
@@ -26,9 +61,11 @@ export function HeroSection() {
         <div 
           className="w-full h-full bg-cover bg-center md:bg-center animate-ken-burns"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&h=1080&fit=crop&q=80')`,
+            backgroundImage,
             backgroundPosition: 'center center',
           }}
+          role="img"
+          aria-label="صورة خلفية لمكتب عصري"
         />
         {/* Multi-layer gradient overlay for depth - stronger on mobile for better text contrast */}
         <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-foreground/90 via-foreground/80 to-foreground/95 md:from-foreground/85 md:via-foreground/75 md:to-foreground/90" />
@@ -39,14 +76,14 @@ export function HeroSection() {
       <div className="absolute inset-0 z-[1] w-full h-full overflow-hidden pointer-events-none hidden sm:block">
         {/* Floating geometric shapes */}
         <div 
-          className="absolute top-1/4 right-[10%] w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 bg-primary/10 rounded-full blur-3xl animate-pulse"
+          className="absolute top-1/4 right-[10%] w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 bg-primary/10 rounded-full blur-3xl animate-pulse will-change-transform"
           style={{
             transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
             transition: 'transform 0.3s ease-out'
           }}
         />
         <div 
-          className="absolute bottom-1/4 left-[15%] w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-primary/5 rounded-full blur-3xl animate-pulse delay-1000"
+          className="absolute bottom-1/4 left-[15%] w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-primary/5 rounded-full blur-3xl animate-pulse delay-1000 will-change-transform"
           style={{
             transform: `translate(${-mousePosition.x}px, ${-mousePosition.y}px)`,
             transition: 'transform 0.3s ease-out'
@@ -68,7 +105,7 @@ export function HeroSection() {
       <div className="relative z-10 w-full max-w-full text-center text-background px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 overflow-hidden">
         <AnimatedSection animation="fade-up">
           {/* Decorative Subtitle - Compact on mobile */}
-          <div className="mb-3 sm:mb-5 md:mb-8 flex items-center justify-center gap-2 sm:gap-3 md:gap-4 animate-in fade-in slide-in-from-top duration-1000 delay-150">
+          <div className="mb-4 sm:mb-6 md:mb-10 flex items-center justify-center gap-2 sm:gap-3 md:gap-4 animate-in fade-in slide-in-from-top duration-1000 delay-150">
             <span className="h-px w-5 sm:w-10 md:w-16 lg:w-20 bg-gradient-to-r from-transparent to-primary" />
             <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2">
               <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 text-primary animate-pulse" />
@@ -81,21 +118,21 @@ export function HeroSection() {
           </div>
 
           {/* Main Heading with Gradient Text - Compact on mobile */}
-          <h1 className="mb-2 sm:mb-3 md:mb-6 text-[1.625rem] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black leading-snug sm:leading-tight animate-in fade-in slide-in-from-bottom duration-1000 delay-300">
+          <h1 className="mb-3 sm:mb-4 md:mb-8 text-[1.625rem] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black leading-snug sm:leading-tight animate-in fade-in slide-in-from-bottom duration-1000 delay-300 px-2 sm:px-4">
             <span className="block mb-0.5 sm:mb-1">وكالة رائدة في</span>
-            <span className="block bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent drop-shadow-lg">
+            <span className="block bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent drop-shadow-lg whitespace-nowrap">
               الدعاية والإعلان
             </span>
           </h1>
 
           {/* Description - Tighter on mobile */}
-          <p className="mx-auto mb-3 sm:mb-6 md:mb-10 lg:mb-12 max-w-[280px] sm:max-w-md md:max-w-2xl lg:max-w-3xl xl:max-w-4xl text-[13px] sm:text-sm md:text-lg lg:text-xl xl:text-2xl leading-relaxed animate-in fade-in slide-in-from-bottom duration-1000 delay-500 font-light">
+          <p className="mx-auto mb-4 sm:mb-8 md:mb-12 lg:mb-14 max-w-[280px] sm:max-w-md md:max-w-2xl lg:max-w-3xl xl:max-w-4xl text-[13px] sm:text-sm md:text-lg lg:text-xl xl:text-2xl leading-relaxed animate-in fade-in slide-in-from-bottom duration-1000 delay-500 font-light">
             نقدم حلولاً إبداعية متكاملة لتطوير علامتك التجارية وتعزيز حضورك في السوق
             بأساليب مبتكرة وفريق محترف
           </p>
 
           {/* Stats/Features Quick Highlights - More compact on mobile */}
-          <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-2 md:gap-5 lg:gap-8 mb-2.5 sm:mb-6 md:mb-10 lg:mb-12 animate-in fade-in slide-in-from-bottom duration-1000 delay-700">
+          <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-2 md:gap-5 lg:gap-8 mb-4 sm:mb-8 md:mb-12 lg:mb-14 animate-in fade-in slide-in-from-bottom duration-1000 delay-700">
             <div className="flex items-center gap-0.5 sm:gap-1.5 md:gap-2 bg-background/15 backdrop-blur-sm px-1.5 sm:px-3 md:px-4 py-0.5 sm:py-1.5 md:py-2 rounded-full border border-background/30">
               <Award className="h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 md:h-5 md:w-5 text-primary flex-shrink-0" />
               <span className="text-[8px] sm:text-[10px] md:text-sm lg:text-base font-medium whitespace-nowrap">خبرة احترافية</span>
@@ -147,6 +184,7 @@ export function HeroSection() {
         <a
           href="#about"
           className="flex flex-col items-center gap-1 sm:gap-1.5 md:gap-3 text-background/60 transition-all hover:text-background group"
+          aria-label="انتقل إلى قسم من نحن"
         >
           <span className="text-[9px] sm:text-[10px] md:text-sm font-medium">اكتشف المزيد</span>
           <div className="h-6 w-4 sm:h-8 sm:w-5 md:h-12 md:w-7 rounded-full border border-background/40 sm:border-2 p-0.5 sm:p-1 md:p-1.5 group-hover:border-background/60 transition-colors">

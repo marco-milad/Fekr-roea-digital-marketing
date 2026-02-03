@@ -24,9 +24,10 @@ export function HeroSection() {
       {/* Background Image with Ken Burns Effect - Full Screen */}
       <div className="absolute inset-0 z-0 w-full h-full m-0 p-0">
         <div 
-          className="w-full h-full bg-cover bg-center animate-ken-burns"
+          className="w-full h-full bg-cover bg-center md:bg-center animate-ken-burns"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&h=1080&fit=crop&q=80')`,
+            backgroundImage: `url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&h=1080&fit=crop&q=80')`,
+            backgroundPosition: 'center center',
           }}
         />
         {/* Multi-layer gradient overlay for depth - stronger on mobile for better text contrast */}

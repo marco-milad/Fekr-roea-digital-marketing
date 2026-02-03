@@ -11,7 +11,7 @@ export function TestimonialsSection() {
   );
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-background overflow-x-hidden">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <AnimatedSection className="text-center mb-12">

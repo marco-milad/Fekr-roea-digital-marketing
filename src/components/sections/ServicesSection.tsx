@@ -4,7 +4,7 @@ import { services } from "@/data/services";
 
 export function ServicesSection() {
   return (
-    <section id="services" className="py-20 bg-background">
+    <section id="services" className="py-20 bg-background overflow-x-hidden">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <AnimatedSection className="text-center mb-12">

@@ -5,7 +5,7 @@ import { clients } from "@/data/clients";
 
 export function ClientsSection() {
   return (
-    <section className="py-20 bg-secondary">
+    <section className="py-20 bg-secondary overflow-x-hidden">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <AnimatedSection className="text-center mb-12">

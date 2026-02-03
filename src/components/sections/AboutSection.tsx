@@ -175,7 +175,7 @@ export function AboutSection() {
   return (
     <section 
       id="about" 
-      className="relative py-24 overflow-hidden"
+      className="relative py-24 overflow-hidden overflow-x-hidden"
       aria-labelledby="about-heading"
     >
       {/* Background with Gradient */}
@@ -332,7 +332,7 @@ export function AboutSection() {
         @keyframes slideInFromRight {
           from {
             opacity: 0;
-            transform: translateX(2rem);
+            transform: translateX(1rem);
           }
           to {
             opacity: 1;
@@ -343,11 +343,35 @@ export function AboutSection() {
         @keyframes slideInFromBottom {
           from {
             opacity: 0;
-            transform: translateY(2rem);
+            transform: translateY(1.5rem);
           }
           to {
             opacity: 1;
             transform: translateY(0);
+          }
+        }
+        
+        @media (min-width: 768px) {
+          @keyframes slideInFromRight {
+            from {
+              opacity: 0;
+              transform: translateX(2rem);
+            }
+            to {
+              opacity: 1;
+              transform: translateX(0);
+            }
+          }
+          
+          @keyframes slideInFromBottom {
+            from {
+              opacity: 0;
+              transform: translateY(2rem);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
           }
         }
       `}</style>

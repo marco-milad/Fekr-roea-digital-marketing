@@ -6,7 +6,7 @@ import { projects } from "@/data/projects";
 
 export function WorksSection() {
   return (
-    <section id="works" className="py-20 bg-secondary">
+    <section id="works" className="py-20 bg-secondary overflow-x-hidden">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <AnimatedSection className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-12">

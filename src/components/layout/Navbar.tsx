@@ -91,7 +91,7 @@ export function Navbar() {
   return (
     <header className="fixed top-0 right-0 left-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border shadow-sm">
       <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
-        <div className="flex h-16 sm:h-18 md:h-20 items-center justify-between gap-3 sm:gap-4 md:gap-6 xl:gap-8">
+        <div className="flex flex-row-reverse h-16 sm:h-18 md:h-20 items-center justify-between gap-3 sm:gap-4 md:gap-6 xl:gap-8">
           {/* Logo */}
           <Link 
             to="/" 

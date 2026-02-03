@@ -20,7 +20,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-[85vh] md:min-h-screen flex items-center justify-center overflow-hidden py-8 pt-20 sm:py-20 md:py-24 lg:py-0 m-0 p-0">
+    <section className="relative w-full min-h-[85vh] md:min-h-screen flex items-center justify-center overflow-hidden overflow-x-hidden py-8 pt-20 sm:py-20 md:py-24 lg:py-0 m-0 p-0">
       {/* Background Image with Ken Burns Effect - Full Screen */}
       <div className="absolute inset-0 z-0 w-full h-full m-0 p-0">
         <div 
@@ -65,7 +65,7 @@ export function HeroSection() {
       </div>
 
       {/* Content - Full Width with Internal Padding Only */}
-      <div className="relative z-10 w-full max-w-full text-center text-background px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+      <div className="relative z-10 w-full max-w-full text-center text-background px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 overflow-hidden">
         <AnimatedSection animation="fade-up">
           {/* Decorative Subtitle - Compact on mobile */}
           <div className="mb-3 sm:mb-5 md:mb-8 flex items-center justify-center gap-2 sm:gap-3 md:gap-4 animate-in fade-in slide-in-from-top duration-1000 delay-150">
@@ -111,7 +111,7 @@ export function HeroSection() {
           </div>
 
           {/* CTA Buttons - Compact and balanced on mobile */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 sm:gap-3 md:gap-5 animate-in fade-in slide-in-from-bottom duration-1000 delay-1000 w-full max-w-[300px] sm:max-w-md md:max-w-2xl mx-auto">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 sm:gap-3 md:gap-5 animate-in fade-in slide-in-from-bottom duration-1000 delay-1000 w-full max-w-[300px] sm:max-w-md md:max-w-2xl mx-auto overflow-hidden">
             <Button
               asChild
               size="lg"

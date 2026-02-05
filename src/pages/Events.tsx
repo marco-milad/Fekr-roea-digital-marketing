@@ -231,6 +231,8 @@ const Events = () => {
           </AnimatedSection>
         </div>
       </section>
+
+      
     </Layout>
   );
 };

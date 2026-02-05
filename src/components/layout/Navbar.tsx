@@ -14,6 +14,11 @@ const navLinks = [
       { href: "/professional-design", label: "التصميم الاحترافي" },
       { href: "/brand-building", label: "بناء و تصميم العلامة التجارية" },
       { href: "/digital-design", label: "التصميم الرقمي و الجرافيكي" },
+      { href: "/digital-design", label: "   الطباعة و الحلول الدعائية و الاعلانية" },
+      { href: "/digital-design", label: " الاستندات  " },
+      { href: "/digital-design", label: "  لوحات الطرق " },
+      { href: "/digital-design", label: "   الدروع التذكارية" },
+      { href: "/digital-design", label: " الهدايا الدعائية  " },
     ]
   },
   { href: "/manufacturing", label: "الصناعة" },
